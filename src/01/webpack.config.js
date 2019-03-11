@@ -21,7 +21,7 @@ const path = require('path');
 const enabledSourceMap = (MODE == 'development' || MODE == 'none');
 const webpack = require('webpack');
 module.exports = {
-  mode:'development',
+  mode:MODE,
   entry:{
     'app':'./src/js/main.es6'
   },
