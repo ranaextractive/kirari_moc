@@ -9,5 +9,5 @@ gulp.task('babel', () =>{
             presets: ['@babel/env']
         }))
         .pipe(uglify({output: {comments: saveLicense}}))
-        .pipe(gulp.dest(config.dest))
+        .pipe(gulp.dest('../../docs/01/assets/js'))
 });

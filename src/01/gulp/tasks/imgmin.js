@@ -6,11 +6,13 @@ var config = require('../config').imgmin;
 
 
 gulp.task('imagemin', function(){
-    gulp.src(config.src)
-    .pipe(imagemin([
-        imageminPng(),
-        imageminJpg(),
-    ]
-    ))
-    .pipe(gulp.dest( config.dest));
+  gulp.src(config.src)
+  .pipe(gulp.dest('../../docs/01/assets'))
+    // gulp.src(config.src)
+    // .pipe(imagemin([
+    //     imageminPng(),
+    //     imageminJpg(),
+    // ]
+    // ))
+    // .pipe(gulp.dest('../../docs/01/assets'));
 });

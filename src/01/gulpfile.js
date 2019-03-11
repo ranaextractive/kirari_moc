@@ -23,5 +23,5 @@ gulp.task('default', e=>{
 });
 
 gulp.task('release',e=>{
-  runSequence(['babel','sass-min','concat'],'diff', e);
+  runSequence(['babel','sass-min','concat-min','imagemin','ejs-min'],'diff', e);
 })

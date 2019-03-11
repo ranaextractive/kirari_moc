@@ -7,6 +7,7 @@ var y = now.getFullYear();
 var m = now.getMonth() + 1;
 var d = now.getDate();
 var fs = require('fs');
+const htmlmin = require('gulp-htmlmin');
 var develop = {
   'ejs':config.src,
   'data': './src/ejs/assets/'
@@ -32,4 +33,26 @@ gulp.task('ejs',function(){
       {ext: '.html'}))
     .pipe($.rename({extname:'.html'}))
     .pipe(gulp.dest(config.dest))
+});
+
+
+gulp.task('ejs-min',function(){
+  const bkfile = './bk/'+y+m+d+'/dist';
+  gulp.src(config.src, {base: './src/'})
+    .pipe($.plumber())
+    .pipe($.data(file=>{
+      return{
+        'filename':file.path
+      }
+    }))
+    .pipe($.ejs({
+      site: JSON.parse(fs.readFileSync(develop.data + 'site.json'))
+      },
+      {ext: '.html'}))
+    .pipe($.rename({extname:'.html'}))
+    .pipe(htmlmin({
+      collapseWhitespace : true,
+      removeComments : true
+    }))
+    .pipe(gulp.dest('../../docs/01/'))
 });

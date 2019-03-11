@@ -24,5 +24,5 @@ gulp.task('sass-min',function(){
 		config.prefixer
 	))
 	.pipe(cssmin())
-	.pipe(gulp.dest(config.dest))
+	.pipe(gulp.dest('../../docs/01/assets/css'))
 });

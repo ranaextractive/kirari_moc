@@ -57,6 +57,9 @@ var config = {
 			`!${src}/js/libs/_*`
 		],
 		dest:dest+'/assets/js/'
+	},
+	imgmin:{
+		src:'./dist/assets/img'
 	}
 };
 
